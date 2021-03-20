@@ -1,10 +1,10 @@
 package com.jetbrains.handson.httpapi
 
-import com.jetbrains.handson.httpapi.models.registerCustomerRoutes
+import com.jetbrains.handson.httpapi.routes.registerCustomerRoutes
+import com.jetbrains.handson.httpapi.routes.registerOrderRoutes
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.serialization.*
-import kotlinx.serialization.json.json
 
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -15,4 +15,5 @@ fun Application.module() {
         json()
     }
     registerCustomerRoutes()
+    registerOrderRoutes()
 }

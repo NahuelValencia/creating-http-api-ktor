@@ -1,8 +1,5 @@
 package com.jetbrains.handson.httpapi.models
 
-import com.jetbrains.handson.httpapi.routes.customerRouting
-import io.ktor.application.*
-import io.ktor.routing.*
 import kotlinx.serialization.Serializable
 
 val customerStorage = mutableListOf<Customer>()
@@ -14,10 +11,4 @@ data class Customer(
     val lastName: String,
     val email: String,
 ) {
-}
-
-fun Application.registerCustomerRoutes() {
-    routing {
-        customerRouting()
-    }
 }
