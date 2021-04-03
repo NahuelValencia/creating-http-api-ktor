@@ -29,8 +29,8 @@ data class Order(
     val total: Double
         get() {
             var itemTotal = 0.0
-            contents.map { item ->
-                itemTotal = +item.price * item.amount
+            contents.forEach { item ->
+                itemTotal += (item.price * item.amount)
             }
             return itemTotal
         }

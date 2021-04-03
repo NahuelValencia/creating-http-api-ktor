@@ -26,9 +26,11 @@ fun Route.getOrderByIdRoute() {
 }
 
 fun Route.getTotalOrderRoute() {
-    get("/order/{id}/order") {
+    get("/order/{id}/total") {
         val id = call.parameters["id"] ?: return@get call.respondText("Bad Request", status = HttpStatusCode.BadRequest)
-        val total = orderStorage.find { it.id == id }?.total ?: return@get call.respondText(
+        val total = orderStorage.find {
+            it.id == id
+        }?.total ?: return@get call.respondText(
             "Not Found",
             status = HttpStatusCode.NotFound
         )
